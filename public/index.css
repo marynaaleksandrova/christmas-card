@@ -104,6 +104,9 @@ body {
   top: 7px;
   right: 10px;
 }
+.fb-like {
+  top: -3px;
+}
 #attribution {
   position: fixed;
   bottom: 7px;
