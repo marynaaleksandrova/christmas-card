@@ -1,0 +1,22 @@
+{
+  "author": "Maryna Aleksandrova <hello@marynaaleksandrova.info> (marynaaleksandrova.info)",
+  "name": "app_template",
+  "description": "Simple template for HTML5, CSS app",
+  "version": "0.1.0",
+  "private": true,
+  "repository": {
+    "url": ""
+  },
+  "main": "server.coffee",
+  "engines": {
+    "node": "~0.6.9"
+  },
+  "dependencies": {
+      "express": ">=2.5.9",
+      "coffee-script": ">=1.3.1",
+      "stylus": ">=0.25.0",
+      "nib": ">=0.4.1"
+    },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

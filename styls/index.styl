@@ -1,0 +1,617 @@
+@import 'nib'
+// reset css styles
+global-reset()
+
+html
+  height: 100%;
+
+body
+  background: url('images/bg.gif') left top repeat;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: sans-serif;
+
+#start
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  & img
+    margin: -30px 0 0 -67px;
+  & p
+    margin: 5px 0 0 -87px;
+    color: #0E504A;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+
+#replay
+  text-decoration: none;
+  background: url('images/replay.png');
+  width: 45px;
+  height: 49px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  opacity: 0;
+  z-index: 30;
+  &.active
+    cursor: pointer;
+    animation: light-on 300ms ease-in forwards;
+
+#center
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+#light
+  width:100%;
+  height: 100%; 
+  background: -moz-radial-gradient(center, ellipse contain,  rgba(191,219,216,1) 0%, rgba(76,119,115,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(191,219,216,1)), color-stop(100%,rgba(76,119,115,0))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse contain,  rgba(191,219,216,1) 0%,rgba(76,119,115,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse contain,  rgba(191,219,216,1) 0%,rgba(76,119,115,0) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse contain,  rgba(191,219,216,1) 0%,rgba(76,119,115,0) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(191,219,216,1) 0%,rgba(76,119,115,0) 100%); /* W3C */
+  opacity: 0;
+  animation: light-on 5000ms ease-in 200ms forwards;
+
+#shadow
+  background: url('images/shadow.png');
+  width: 1920px;
+  height: 545px;
+  position: absolute;
+  margin-top: -67px;
+  margin-left: -960px;
+
+#scene
+  width: 1016px;
+  height: 655px;
+  margin-left: -508px;
+  margin-top: -327px;
+  position: relative;
+  perspective: 1000px;
+  & div
+    position: absolute;
+
+#back
+  width: 1016px;
+
+#mount-center
+  background: url('images/mount-center.png');
+  width: 421px;
+  height: 253px;
+  top: 132px;
+  left: 295px;
+  z-index: 1;
+  transform-origin: 50% 120%;
+  animation: stand-up 800ms ease-in 3100ms forwards;
+  opacity: 0;
+
+#mount-right
+  background: url('images/mount-right.png');
+  width: 305px;
+  height: 186px;
+  top: 212px;
+  right: 194px;
+  z-index: 2;
+  transform-origin: 50% 120%;
+  animation: stand-up 800ms ease-in 2900ms forwards;
+  opacity: 0;
+
+#ski-right-light
+  background: url('images/ski-right-light.png');
+  width: 38px;
+  height: 36px;
+  left: 128px;
+  top: 1px;
+  opacity: 0;
+  animation: light-on 600ms ease-in 4500ms forwards;
+
+#mount-left
+  background: url('images/mount-left.png');
+  width: 324px;
+  height: 199px;
+  top: 193px;
+  left: 193px;
+  z-index: 3;
+  transform-origin: 50% 120%;
+  animation: stand-up 800ms ease-in 2500ms forwards;
+  opacity: 0;
+
+#ski-left-light
+  background: url('images/ski-left-light.png');
+  width: 121px;
+  height: 152px;
+  left: 45px;
+  top: 1px;
+  opacity: 0;
+  animation: light-on 600ms ease-in 4500ms forwards;
+
+.lift
+  background: url('images/lift.png');
+  width: 137px;
+  height: 178px;
+  left: 16px;
+  top: -1px;
+
+.lift-cabin
+  background: url('images/lift-cabin.png');
+  width: 10px;
+  height: 14px;
+  right: 115px;
+  bottom: 0px;
+  animation: lift 6000ms linear 4500ms forwards;
+  animation-iteration-count: 2;
+  &.two
+    animation-delay: 6500ms;
+    animation-iteration-count: 1;
+  &.three
+    animation-delay: 8500ms;
+    animation-iteration-count: 1;
+
+.skier
+  background: url('images/skier.png');
+  width: 12px;
+  height: 15px;
+  opacity: 0;
+  animation: skier 2000ms ease-in 7350ms 4 forwards;
+
+#mount-right .skier
+  right: 144px;
+  bottom: 154px;
+
+#mount-left .skier
+  right: 162px;
+  bottom: 167px;
+
+#middle
+  background: url('images/houses.png');
+  width: 809px;
+  height: 224px;
+  top: 299px;
+  left: 111px;
+  top: 294px;
+  left: 109px;
+  z-index: 4;
+  transform-origin: 50% 100%;
+  animation: stand-up 1600ms ease-in 1600ms forwards;
+  opacity: 0;
+
+.windows
+  width: 784px;
+  height: 171px;
+  left: 6px;
+  top: 25px;
+  &.light
+    background: url('images/windows-light.png');
+    opacity: 0;
+    animation: light-on-off 2000ms ease-in 5000ms infinite forwards;
+  &.dark
+    background: url('images/windows-dark.png');
+    animation: light-off 700ms ease-in 3900ms forwards;
+
+#front
+  background: url('images/rink.png');
+  width: 979px;
+  height: 205px;
+  top: 456px;
+  left: 23px;
+  z-index: 5;
+  perspective: 1000px;
+  opacity: 0;
+  animation: light-on 1600ms ease-in 400ms forwards;
+
+#lamps-back
+  background: url('images/lamps-back.png');
+  width: 420px;
+  height: 108px;
+  top: -79px;
+  left: 276px;
+  transform-origin: 50% 100%;
+  animation: stand-up 800ms ease-in 2500ms forwards;
+  opacity: 0;
+
+#lamps-light-back
+  background: url('images/lamps-light-back.png');
+  width: 443px;
+  height: 104px;
+  top: 14px;
+  left: -19px;
+  opacity: 0;
+  animation: light-on 600ms ease-in 4500ms forwards;
+
+#lamps-front
+  background: url('images/lamps-front.png');
+  width: 931px;
+  height: 238px;
+  top: -77px;
+  left: 27px;
+  transform-origin: 50% 100%;
+  animation: stand-up 800ms ease-in 2700ms forwards;
+  opacity: 0;
+
+#lamps-light-front
+  background: url('images/lamps-light-front.png');
+  width: 906px;
+  height: 198px;
+  top: 25px;
+  left: 6px;
+  opacity: 0;
+  animation: light-on 600ms ease-in 4500ms forwards;
+
+#rink-front
+  background: url('images/rink-front.png');
+  width: 1006px;
+  height: 145px;
+  bottom: -13px;
+  left: 7px;
+  z-index: 82;
+  opacity: 0;
+  animation: light-on 600ms ease-in 200ms forwards;
+
+#tree
+  background: url('images/tree.png');
+  width: 333px;
+  height: 549px;
+  left: 346px;
+  top: 32px;
+  z-index: 6;
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation: stand-up 1550ms ease-in 1200ms forwards;
+  & div
+    opacity: 0;
+
+#decorations1
+  background: url('images/decorations-1.png');
+  width: 240px;
+  height: 422px;
+  top: 87px;
+  left: 26px;
+  animation: light-on 200ms ease-in-out 5350ms forwards;
+
+#decorations2
+  background: url('images/decorations-2.png');
+  width: 320px;
+  height: 498px;
+  top: 35px;
+  left: 8px;
+  animation: light-on 100ms ease-in-out 5860ms forwards;
+
+#decorations3
+  background: url('images/decorations-3.png');
+  width: 237px;
+  height: 396px;
+  top: 42px;
+  left: 50px;
+  animation: light-on 200ms ease-in-out 6070ms forwards;
+
+#decorations4
+  background: url('images/decorations-4.png');
+  width: 178px;
+  height: 178px;
+  top: -85px;
+  left: 74px;
+  opacity: 1;
+  animation: light-on-off 2400ms ease-in-out 7000ms 3 forwards;
+  
+#decorations5
+  background: url('images/decorations-5.png');
+  width: 71px;
+  height: 68px;
+  top: -32px;
+  left: 128px;
+  animation: light-on 200ms ease-in-out 6600ms forwards;
+
+#congrats1
+  background: url('images/congrats-1.png');
+  width: 165px;
+  height: 56px;
+  top: 219px;
+  left: 83px;
+  transform-origin: 50% 20%;
+  animation: stand-up 200ms ease-in 10980ms forwards;
+
+#congrats2
+  background: url('images/congrats-2.png');
+  width: 201px;
+  height: 63px;
+  top: 287px;
+  left: 64px;
+  transform-origin: 50% 20%;
+  animation: stand-up 200ms ease-in 11100ms forwards;
+
+#congrats3
+  background: url('images/congrats-3.png');
+  width: 274px;
+  height: 117px;
+  top: 374px;
+  left: 27px;
+  animation: stand-up 200ms ease-in 11200ms forwards;
+
+#general-light
+  background: url('images/general-light.png');
+  width: 995px;
+  height: 736px;
+  position: absolute;
+  left: 7%;
+  top: 0;
+  animation: light-on 1200ms ease-in forwards;
+
+// ANIMATIONS
+@keyframes light-on {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes light-on-off {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes light-off {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes stand-up {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes lift {
+  0% {
+    right: 115px;
+    bottom: 0px;
+  }
+  50% {
+    right: -3px;
+    bottom: 164px;
+  }
+  51% {
+    right: 9px;
+    bottom: 164px;
+  }
+  100% {
+    right: 127px;
+    bottom: 0px;
+  }
+}
+
+@keyframes skier {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    right: 32px;
+    bottom: 0;
+  }
+}
+
+.flake 
+  border-radius: 50%;
+  position: absolute;
+  background-color: white;
+  &.small
+    width: 4px;
+    height: 4px;
+  &.medium
+    width: 6px;
+    height: 6px;
+  &.large
+    width: 10px;
+    height: 10px;
+
+.slow
+  animation: snowflake 7500ms linear 1;
+
+.avarage
+  animation: snowflake 5500ms linear 2;
+
+.fast
+  animation: snowflake 3500ms linear 3;
+
+.delay
+  animation-delay: 7500ms;
+
+.delay1200
+  animation-delay: 8700ms;
+
+.delay2400
+  animation-delay: 9900ms;
+
+.pos20
+  left: 20%;
+
+.pos25
+  left: 25%;
+
+.pos40
+  left: 40%;
+
+.pos45
+  left: 45%;
+
+.pos50
+  left: 50%;
+
+.pos55
+  left: 55%;
+
+.pos60
+  left: 60%;
+
+.pos70
+  left: 70%;
+
+.pos80
+  left: 80%;
+
+@keyframes snowflake { 
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 95%;
+    opacity: 0;
+  }
+}
+
+.people
+  opacity: 0;
+  transform-origin: 50% 100%;
+  animation: stand-up 800ms ease-out 3400ms forwards;
+
+#one
+  background: url('images/1.png');
+  width: 39px;
+  height: 60px;
+  bottom: 140px;
+  left: 330px;
+  z-index: 20;
+  animation: stand-up 800ms ease-out 3400ms forwards, one 7200ms linear 7400ms forwards;
+
+#two
+  background: url('images/2.png');
+  width: 74px;
+  height: 118px;
+  bottom: 9px;
+  left: 436px;
+  z-index: 21;
+  animation: stand-up 800ms ease-out 3400ms forwards, two 7250ms linear 7350ms forwards;
+
+#three
+  background: url('images/3.png');
+  width: 40px;
+  height: 59px;
+  bottom: 143px;
+  right: 259px;
+  z-index: 5;
+  animation: stand-up 800ms ease-out 3400ms forwards, three 7200ms linear 7400ms forwards;
+
+#four
+  background: url('images/4.png');
+  width: 31px;
+  height: 74px;
+  bottom: 100px;
+  right: 100px;
+  z-index: 20;
+  animation: stand-up 800ms ease-out 3400ms forwards, four 7500ms linear 7100ms forwards;
+
+#five
+  background: url('images/5.png');
+  width: 67px;
+  height: 99px;
+  bottom: 71px;
+  right: 804px;
+  z-index: 21;
+  animation: stand-up 800ms ease-out 3400ms forwards, five 7300ms linear 7350ms forwards;
+
+#six
+  background: url('images/6.png');
+  width: 39px;
+  height: 69px;
+  bottom: 58px;
+  left: 368px;
+  z-index: 21;
+  animation: stand-up 800ms ease-out 3400ms forwards, six 7300ms linear 7350ms forwards;
+
+#seven
+  background: url('images/7.png');
+  width: 70px;
+  height: 102px;
+  bottom: 39px;
+  left: 270px;
+  z-index: 21;
+  animation: stand-up 800ms ease-out 3400ms forwards, seven 7100ms linear 7450ms forwards;
+
+@keyframes one {
+  to {
+    bottom: 110px;
+    left: 140px;
+    transform: rotateY(50deg);
+  }
+}
+
+@keyframes two {
+  to {
+    bottom: 50px;
+    left: 756px;
+    transform: rotateY(20deg);
+  }
+}
+
+@keyframes three {
+  to {
+    right: 684px;
+  }
+}
+
+@keyframes four {
+  to {
+    bottom: 134px;
+    right: 322px;
+    transform: rotateY(-30deg);
+  }
+}
+
+@keyframes five {
+  to {
+    bottom: 36px;
+    right: 665px;
+    transform: rotateY(-15deg);
+  }
+}
+
+@keyframes six {
+  to {
+    left: 624px;
+  }
+}
+
+@keyframes seven {
+  to {
+    bottom: 23px;
+    left: 509px;
+  }
+}
+
+#start.active
+  display: block;
+  cursor: pointer;
+
+.card
+  display: none;
+  &.active
+    display: block;
+  &.inactive
+    display: none;
